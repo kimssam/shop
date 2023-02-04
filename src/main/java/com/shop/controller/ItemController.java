@@ -1,11 +1,18 @@
 package com.shop.controller;
 
 import com.shop.dto.ItemFormDto;
-//import com.shop.service.ItemService;
+import com.shop.service.ItemService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
+
+import javax.validation.Valid;
+import java.util.List;
 
 //import com.shop.dto.ItemSearchDto;
 
@@ -14,7 +21,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 @RequiredArgsConstructor
 public class ItemController {
 
-//    private final ItemService itemService;
+    private final ItemService itemService;
 
     @GetMapping(value = "/admin/item/new")
     public String itemForm(Model model){
@@ -22,7 +29,7 @@ public class ItemController {
         return "item/itemForm";
     }
 
-    /*@PostMapping(value = "/admin/item/new")
+    @PostMapping(value = "/admin/item/new")
     public String itemNew(@Valid ItemFormDto itemFormDto, BindingResult bindingResult,
                           Model model, @RequestParam("itemImgFile") List<MultipartFile> itemImgFileList){
 
@@ -43,7 +50,7 @@ public class ItemController {
         }
 
         return "redirect:/";
-    }*/
+    }
 
     /*@GetMapping(value = "/admin/item/{itemId}")
     public String itemDtl(@PathVariable("itemId") Long itemId, Model model){
