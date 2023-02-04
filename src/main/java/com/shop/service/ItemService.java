@@ -1,6 +1,7 @@
 package com.shop.service;
 
 import com.shop.dto.ItemFormDto;
+import com.shop.dto.ItemImgDto;
 import com.shop.entity.Item;
 import com.shop.entity.ItemImg;
 import com.shop.repository.ItemImgRepository;
@@ -9,7 +10,9 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
+import javax.persistence.EntityNotFoundException; //직접입력
 
+import java.util.ArrayList;
 import java.util.List;
 
 //import com.shop.dto.ItemSearchDto;
@@ -51,7 +54,7 @@ public class ItemService {
     }
 
 
-    /*@Transactional(readOnly = true)
+    @Transactional(readOnly = true)
     public ItemFormDto getItemDtl(Long itemId){
         List<ItemImg> itemImgList = itemImgRepository.findByItemIdOrderByIdAsc(itemId);
         List<ItemImgDto> itemImgDtoList = new ArrayList<>();
@@ -65,7 +68,7 @@ public class ItemService {
         ItemFormDto itemFormDto = ItemFormDto.of(item);
         itemFormDto.setItemImgDtoList(itemImgDtoList);
         return itemFormDto;
-    }*/
+    }
 
     /*public Long updateItem(ItemFormDto itemFormDto, List<MultipartFile> itemImgFileList) throws Exception{
         //상품 수정
