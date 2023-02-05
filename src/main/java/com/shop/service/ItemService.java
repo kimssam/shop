@@ -70,7 +70,7 @@ public class ItemService {
         return itemFormDto;
     }
 
-    /*public Long updateItem(ItemFormDto itemFormDto, List<MultipartFile> itemImgFileList) throws Exception{
+    public Long updateItem(ItemFormDto itemFormDto, List<MultipartFile> itemImgFileList) throws Exception{
         //상품 수정
         Item item = itemRepository.findById(itemFormDto.getId())
                 .orElseThrow(EntityNotFoundException::new);
@@ -84,7 +84,7 @@ public class ItemService {
         }
 
         return item.getId();
-    }*/
+    }
 
     /*@Transactional(readOnly = true)
     public Page<Item> getAdminItemPage(ItemSearchDto itemSearchDto, Pageable pageable){
