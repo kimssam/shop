@@ -96,7 +96,7 @@ public class OrderService {
         order.cancelOrder();
     }
 
-    /*public Long orders(List<OrderDto> orderDtoList, String email){
+    public Long orders(List<OrderDto> orderDtoList, String email){
 
         Member member = memberRepository.findByEmail(email);
         List<OrderItem> orderItemList = new ArrayList<>();
@@ -113,6 +113,6 @@ public class OrderService {
         orderRepository.save(order);
 
         return order.getId();
-    }*/
+    }
 
 }

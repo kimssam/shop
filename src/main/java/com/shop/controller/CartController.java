@@ -14,7 +14,7 @@ import javax.validation.Valid;
 import java.security.Principal;
 import java.util.List;
 
-//import com.shop.dto.CartDetailDto;
+import com.shop.dto.CartDetailDto;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
@@ -23,7 +23,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 import org.springframework.web.bind.annotation.DeleteMapping;
 
-//import com.shop.dto.CartOrderDto;
+import com.shop.dto.CartOrderDto;
 
 @Controller
 @RequiredArgsConstructor
@@ -57,14 +57,14 @@ public class CartController {
         return new ResponseEntity<Long>(cartItemId, HttpStatus.OK);
     }
 
-    /*@GetMapping(value = "/cart")
+    @GetMapping(value = "/cart")
     public String orderHist(Principal principal, Model model){
         List<CartDetailDto> cartDetailList = cartService.getCartList(principal.getName());
         model.addAttribute("cartItems", cartDetailList);
         return "cart/cartList";
-    }*/
+    }
 
-    /*@PatchMapping(value = "/cartItem/{cartItemId}")
+    @PatchMapping(value = "/cartItem/{cartItemId}")
     public @ResponseBody ResponseEntity updateCartItem(@PathVariable("cartItemId") Long cartItemId, int count, Principal principal){
 
         if(count <= 0){
@@ -75,9 +75,9 @@ public class CartController {
 
         cartService.updateCartItemCount(cartItemId, count);
         return new ResponseEntity<Long>(cartItemId, HttpStatus.OK);
-    }*/
+    }
 
-    /*@DeleteMapping(value = "/cartItem/{cartItemId}")
+    @DeleteMapping(value = "/cartItem/{cartItemId}")
     public @ResponseBody ResponseEntity deleteCartItem(@PathVariable("cartItemId") Long cartItemId, Principal principal){
 
         if(!cartService.validateCartItem(cartItemId, principal.getName())){
@@ -87,9 +87,9 @@ public class CartController {
         cartService.deleteCartItem(cartItemId);
 
         return new ResponseEntity<Long>(cartItemId, HttpStatus.OK);
-    }*/
+    }
 
-    /*@PostMapping(value = "/cart/orders")
+    @PostMapping(value = "/cart/orders")
     public @ResponseBody ResponseEntity orderCartItem(@RequestBody CartOrderDto cartOrderDto, Principal principal){
 
         List<CartOrderDto> cartOrderDtoList = cartOrderDto.getCartOrderDtoList();
@@ -106,6 +106,6 @@ public class CartController {
 
         Long orderId = cartService.orderCartItem(cartOrderDtoList, principal.getName());
         return new ResponseEntity<Long>(orderId, HttpStatus.OK);
-    }*/
+    }
 
 }
